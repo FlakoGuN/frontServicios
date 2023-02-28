@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Ver Servicios</h3>
+
+    
+
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Servicio</th>
+            <th scope="col">fecha</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let serv of servicio " >
+            <th scope="row">{{serv.name_serv}}</th>
+            <td>{{serv.fecha|date:"medium"}}</td>
+            <td>{{serv.equipo_id.equipo}}</td>
+            <td>{{serv.equipo_id.cliente_id.empresa}}</td>
+            <td><button  class="btn btn-primary" (click)="verid(serv.id)"> Ver Servicio</button></td>
+          </tr>
+         
+        
+        </tbody>
+      </table>
+    
+    </div>
+    
+</div>

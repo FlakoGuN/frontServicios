@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+<h3>Empresas</h3>
+</div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Empresa</th>
+        <th scope="col">Rut</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let clien of cliente ">
+        <th scope="row">{{clien.empresa}}</th>
+        <td>{{clien.rut}}</td>
+        <td>{{clien.direccion}}</td>
+        <td><button  class="btn btn-primary" (click)="crearContact(clien.id)" > Crear Contacto</button></td>
+      </tr>
+     
+     
+      
+      
+    </tbody>
+  </table>
+
+</div>

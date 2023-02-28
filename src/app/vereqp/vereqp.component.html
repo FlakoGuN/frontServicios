@@ -1,0 +1,30 @@
+<div class="container">
+    <div>
+  <h3>Equipos</h3>
+  </div>
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Marca</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Serial</th>
+          <th scope="col">Contador</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let eqp of equipo " >
+          <th scope="row">{{eqp.equipo}}</th>
+          <td>{{eqp.modelo}}</td>
+          <td>{{eqp.serial}}</td>
+          <td>{{eqp.contador}}</td>
+          <td><button  class="btn btn-primary"> Crear Servicio</button></td>
+        </tr>
+       
+       
+        
+        
+      </tbody>
+    </table>
+  
+  </div>
