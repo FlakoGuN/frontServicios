@@ -1,1 +1,66 @@
-<p>mostrarserv works!</p>
+<div class="container">
+
+    <h3>Empresa:{{servicio.equipo_id.cliente_id.empresa}}</h3>
+    <table className='table table-dark table hover'>
+      
+      <thead>
+      <tr>
+        
+        <th scope="col">Rut </th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Fecha</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+       
+        <tr  scope="row">
+          
+          <td>{{servicio.equipo_id.cliente_id.rut}}</td>
+          <td>{{servicio.equipo_id.cliente_id.direccion}}</td>
+          <td>  {{servicio.equipo_id.cliente_id.contacto[0].telefono}}</td>
+          <td>  {{servicio.fecha | date:"medium"}}</td>
+          
+        </tr>
+      </tbody>
+      </table>
+    <div id='titulos'>
+        <h4 id='nombre'>Nombre:</h4> <p className='textos'> {{servicio.equipo_id.equipo}} </p>  <h4 id='modelo'> Modelo:  </h4>  <p className='textos'> {{servicio.equipo_id.modelo}}</p> <h4 id='serial'> Serie S/N:   </h4> <p className='textos'> {{servicio.equipo_id.serial}} </p> <hr/>
+         <h4 id='motivo'> Motivo del Servicio: </h4> <p> {{servicio.name_serv}} </p>
+         </div>
+         
+         <div id='blockTareas'>
+         <hr/>
+        <h4>Tareas Realizadas</h4>
+         <p>{{servicio.descripcion}}</p>
+         <hr/>
+         <h4>Partes Usadas</h4>
+         <p>{{servicio.partes}}</p>
+          
+         <hr/>
+         <h4>recomendaciones</h4>
+         <p>{{servicio.recomendaciones}}</p>
+         <hr/>
+         <h4>Horas Usadas</h4>
+         <p>{{servicio.horas_serv}}</p>
+    
+         </div>
+          
+          <hr/><br/>
+       
+          <div>
+          <div id='tecnico'>
+          <h4>Realizado Por</h4>
+          <h5  >Jose Ramirez</h5>
+             <p ><i className="fa-solid fa-phone"></i> +56 9 54927928<br/><i class="fa-regular fa-envelope"></i> jose@smartgraphics.cl</p>
+             </div>
+             
+              
+             <div id='contacto'>
+             <h4>Contacto</h4>
+             <h5 >{{servicio.equipo_id.cliente_id.contacto[0].nombre }} {{servicio.equipo_id.cliente_id.contacto[0].apellido }} </h5>
+             <p ><i className="fa-solid fa-phone"></i> {{servicio.equipo_id.cliente_id.contacto[0].telefono}}<br/><i class="fa-regular fa-envelope"></i> {{servicio.equipo_id.cliente_id.contacto[0].correo }}</p>
+     </div>
+   </div>
+</div>

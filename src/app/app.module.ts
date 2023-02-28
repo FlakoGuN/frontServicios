@@ -42,6 +42,7 @@ import { MostrarservComponent } from './mostrarserv/mostrarserv.component';
     CrearservfinalComponent,
     MostrarservComponent,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,9 @@ import { MostrarservComponent } from './mostrarserv/mostrarserv.component';
     MatFormFieldModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
+  
     
     
   ],

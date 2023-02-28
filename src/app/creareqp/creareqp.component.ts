@@ -27,7 +27,7 @@ export class CreareqpComponent implements OnInit {
     this.equipos = this.srv.getEquipos();
     console.log(this.equipos);
     this.formValues = this.fB.group({
-      equipo: [''],
+      equipo: [''], 
       modelo: [''],
       serial: [''],
       contador: [''],

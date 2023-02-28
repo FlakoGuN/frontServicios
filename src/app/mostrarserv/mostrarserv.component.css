@@ -1,0 +1,49 @@
+
+#logov{
+    margin-top: 2%;
+    margin-right: 16%;
+  
+}
+
+#ver{
+
+    border-style: solid;
+}
+
+
+
+#nombre {
+    display: inline-block;
+    margin-left: 3%;
+}
+
+
+
+#modelo {
+ 
+    display: inline-block;
+    
+}
+
+#serial {
+ 
+    display: inline-block;
+    
+}
+
+.textos{
+    margin-right: 5%;
+    display: inline-block;
+    
+}
+
+#contacto{
+    display: inline-block;    
+   margin-left: 20%;
+}
+
+#tecnico 
+{
+    
+ display: inline-block;      
+}

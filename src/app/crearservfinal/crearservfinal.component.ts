@@ -33,7 +33,8 @@ export class CrearservfinalComponent implements OnInit {
       recomendaciones: [''],
       partes: [''],
       horas_serv: [''],
-      equipos: 0
+      equipos: 0,
+      contactoid: []
     });
   }
   
@@ -45,6 +46,7 @@ postServicioDetail(){
   this.servicioModelObject.partes = this.formValues.value.partes;
   this.servicioModelObject.horas_serv = this.formValues.value.horas_serv;
   this.servicioModelObject.equipo_id.id = this.formValues.value.equipos;
+  this.servicioModelObject.equipo_id.cliente_id.contacto[0] = this.formValues.value.contactoid;
   this.srv.crearServicios(this.servicioModelObject).subscribe(
     data => {
       console.log(data);
