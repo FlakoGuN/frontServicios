@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Servicio } from 'src/modelos/Servicio';
 import { SrvclienteService } from '../srvcliente.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-mostrarserv',
@@ -47,6 +48,11 @@ export class MostrarservComponent implements OnInit {
   }
 
 
+imprimir(){
+    window.print();
+  
+  
+}
 
 }
 

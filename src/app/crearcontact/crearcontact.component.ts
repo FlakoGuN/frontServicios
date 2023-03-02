@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { SrvclienteService } from '../srvcliente.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Contacto } from 'src/modelos/Contacto';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-crearcontact',
@@ -42,8 +44,14 @@ contactModelObject: Contacto = new Contacto();
     this.contactModelObject.cliente_id.id = this.formValues.value.empresas;
     this.srv.crearContactos(this.contactModelObject).subscribe(
       data => {
+        
         console.log(data);
-        alert("Contacto creado");
+        Swal.fire({
+          title: 'Contacto creado',
+          text: 'Continuar',
+          icon: 'success',
+          
+        })
         this.router.navigate(["vercontacto"]);
       }
     );

@@ -24,6 +24,7 @@ import { VereqpComponent } from './vereqp/vereqp.component';
 import { VerservComponent } from './verserv/verserv.component';
 import { CrearservfinalComponent } from './crearservfinal/crearservfinal.component';
 import { MostrarservComponent } from './mostrarserv/mostrarserv.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -57,12 +58,14 @@ import { MostrarservComponent } from './mostrarserv/mostrarserv.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    
    
   
     
     
   ],
-  providers: [SrvclienteService],
+  providers: [SrvclienteService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

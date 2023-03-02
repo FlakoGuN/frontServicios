@@ -14,7 +14,7 @@ export class SrvclienteService {
   
   constructor(private http:HttpClient) { }
 
-  url="http://localhost:8080/api";
+  url="http://201.188.157.152:8080/api";
  
 
   public clientes: Observable<Cliente[]> = of([]);

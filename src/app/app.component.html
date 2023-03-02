@@ -1,40 +1,45 @@
-<div class="container">
-<p>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-     <button class="btn btn-primary" (click)="login()"><span>Servicios Smart</span></button>  
-      <span class="example-spacer"></span>
-     
-      <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon" (click)="crear()">
-        Crear CLientes
-      </button>
-      <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon"(click)="empresas()" >
-        Clientes
-      </button >
-     <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon" (click)="contacto()">
-        Crear Contactos
-      </button>
-      <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon"(click)="vercontacto()" >
-        Contactos
-      </button >
-     
-      <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon" (click)="crearequipo()">
-        Crear Equipos
-      </button>
-      <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon"(click)="verequipo()" >
-        Equipos
-      </button >
-      <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon" (click)="crearservicios()" >
-        Crear Servicios
-      </button>
-      <button mat-icon-button class="btn btn-outline-primary btn-sm me-md-2" aria-label="Example icon-button with menu icon" (click)="verservicio()" >
-        Servicios
-      </button >
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
       
-    </mat-toolbar-row>
-    
-</mat-toolbar>
-</p>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="navbar-brand md-2 " (click)="login()">Iniciar Sesion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" aria-current="page" (click)="crear()">Crear Cliente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" (click)="empresas()">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4"(click)="contacto()">Crear Contactos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" (click)="vercontacto()">Ver Contactos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" (click)="crearequipo()">Crear Equipos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" (click)="verequipo()">Ver Equipos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" (click)="crearservicios()">Crear Servicio</a>
+          </li>
+          <li class="nav-item ms-4">
+            <a class="nav-link" (click)="verservicio()">Ver Servicios</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
 <router-outlet></router-outlet>
 
 </div>

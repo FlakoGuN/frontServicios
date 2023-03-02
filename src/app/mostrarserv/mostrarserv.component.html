@@ -1,15 +1,19 @@
-<div class="container">
+<div class="container md">
 
-    <h3>Empresa:{{servicio.equipo_id.cliente_id.empresa}}</h3>
-    <table className='table table-dark table hover'>
+  <div id='logo' class="text-center">
+    <img   src='/assets/LogoSmart.png'  id='logo'/>
+    </div>
+
+    <h3 class=" text-center">Empresa:{{servicio.equipo_id.cliente_id.empresa}}</h3>
+    <table class='table table-dark table hover'>
       
       <thead>
       <tr>
         
-        <th scope="col">Rut </th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Telefono</th>
-        <th scope="col">Fecha</th>
+        <th class="col-md-2" scope="col">Rut </th>
+        <th class="col-md-2" scope="col">Direccion</th>
+        <th class="col-md-2" scope="col">Telefono</th>
+        <th class="col-md-2" scope="col">Fecha</th>
         
         </tr>
       </thead>
@@ -26,41 +30,52 @@
       </tbody>
       </table>
     <div id='titulos'>
-        <h4 id='nombre'>Nombre:</h4> <p className='textos'> {{servicio.equipo_id.equipo}} </p>  <h4 id='modelo'> Modelo:  </h4>  <p className='textos'> {{servicio.equipo_id.modelo}}</p> <h4 id='serial'> Serie S/N:   </h4> <p className='textos'> {{servicio.equipo_id.serial}} </p> <hr/>
-         <h4 id='motivo'> Motivo del Servicio: </h4> <p> {{servicio.name_serv}} </p>
+      <div class="container text-center">
+        <h6 id='nombre'>Nombre:</h6> 
+        <p class='textos col-md-2'> {{servicio.equipo_id.equipo}} </p> 
+         <h6 id='modelo'> Modelo:  </h6>  <p class='textos col-md-2'> {{servicio.equipo_id.modelo}}</p> 
+         <h6 id='serial'> Serie S/N:   </h6> <p class='textos col-md-2'> {{servicio.equipo_id.serial}} </p> <hr/>
+        </div>
+         <h6 id='motivo' class="text-center"> Motivo del Servicio: </h6> <p class="text-center"> {{servicio.name_serv}} </p>
          </div>
          
          <div id='blockTareas'>
          <hr/>
-        <h4>Tareas Realizadas</h4>
-         <p>{{servicio.descripcion}}</p>
+        <h4 class="blockquote text-center">Tareas Realizadas</h4>
+         <p class=" text-center">{{servicio.descripcion}}</p>
          <hr/>
-         <h4>Partes Usadas</h4>
-         <p>{{servicio.partes}}</p>
+         <h4 class="blockquote text-center">Partes Usadas</h4>
+         <p class=" text-center">{{servicio.partes}}</p>
           
          <hr/>
-         <h4>recomendaciones</h4>
-         <p>{{servicio.recomendaciones}}</p>
+         <h4 class="blockquote text-center">recomendaciones</h4>
+         <p class=" text-center">{{servicio.recomendaciones}}</p>
          <hr/>
-         <h4>Horas Usadas</h4>
-         <p>{{servicio.horas_serv}}</p>
-    
+         <h4 class="blockquote text-center">Horas Usadas</h4>
+         <p class=" text-center">{{servicio.horas_serv}}</p>
+         <hr/>
          </div>
           
-          <hr/><br/>
-       
+        
+       <div class="container" id="contactos">
           <div>
           <div id='tecnico'>
           <h4>Realizado Por</h4>
           <h5  >Jose Ramirez</h5>
-             <p ><i className="fa-solid fa-phone"></i> +56 9 54927928<br/><i class="fa-regular fa-envelope"></i> jose@smartgraphics.cl</p>
+             <p ><i class="fa-solid fa-phone"></i> +56 9 54927928<br/><i class="fa-regular fa-envelope"></i> jose@smartgraphics.cl</p>
              </div>
              
               
              <div id='contacto'>
              <h4>Contacto</h4>
              <h5 >{{servicio.equipo_id.cliente_id.contacto[0].nombre }} {{servicio.equipo_id.cliente_id.contacto[0].apellido }} </h5>
-             <p ><i className="fa-solid fa-phone"></i> {{servicio.equipo_id.cliente_id.contacto[0].telefono}}<br/><i class="fa-regular fa-envelope"></i> {{servicio.equipo_id.cliente_id.contacto[0].correo }}</p>
-     </div>
+             <p ><i class="fa-solid fa-phone"></i> {{servicio.equipo_id.cliente_id.contacto[0].telefono}}<br/><i class="fa-regular fa-envelope"></i> {{servicio.equipo_id.cliente_id.contacto[0].correo }}</p>
+            </div>
+    
+            </div>
    </div>
+   <hr/><br/>
+   <div class="text-center">
+   <button class="btn btn-primary " (click)="imprimir()">Imprimir</button>
+  </div>
 </div>
