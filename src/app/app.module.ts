@@ -25,6 +25,10 @@ import { VerservComponent } from './verserv/verserv.component';
 import { CrearservfinalComponent } from './crearservfinal/crearservfinal.component';
 import { MostrarservComponent } from './mostrarserv/mostrarserv.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -42,6 +46,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     VerservComponent,
     CrearservfinalComponent,
     MostrarservComponent,
+    UserComponent,
     
     
   ],
@@ -58,6 +63,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
     
    
   

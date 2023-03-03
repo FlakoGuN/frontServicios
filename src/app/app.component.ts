@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'front';
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router, private usrsvc: UserService) { }
 
   empresas(){
     this.router.navigate(['empresas']);
@@ -36,10 +34,18 @@ export class AppComponent {
     this.router.navigate(['login']);
   }
 
+  user(){
+    this.router.navigate(['user']);
+  }
   verservicio(){
     this.router.navigate(['verservicio']);
   }
   crearservicios(){
     this.router.navigate(['crearservicio']);
+  }
+
+  logout(){
+    this.usrsvc.logoutUser();
+   
   }
 }

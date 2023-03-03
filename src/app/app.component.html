@@ -12,6 +12,10 @@
             <a class="navbar-brand md-2 " (click)="login()">Iniciar Sesion</a>
           </li>
           <li class="nav-item">
+            <a class="navbar-brand md-2 " (click)="user()">Crear Usuario</a>
+          </li>
+          
+          <li class="nav-item">
             <a class="nav-link ms-4" aria-current="page" (click)="crear()">Crear Cliente</a>
           </li>
           <li class="nav-item">
@@ -34,11 +38,20 @@
           </li>
           <li class="nav-item ms-4">
             <a class="nav-link" (click)="verservicio()">Ver Servicios</a>
+          </li>
+  <li class="nav-item">
+    <a class="navbar-brand ms-5  " (click)="logout()">Logout</a>
+  </li>
         </ul>
+      
       </div>
     </div>
   </nav>
 
+  <div id="img" class="container text-center">
+    <img src="https://i.pinimg.com/originals/f2/c7/f6/f2c7f62b7cfa21d1e92088c855aa3bd4.gif"  class="img-fluid" alt="logo" >
+
+  </div>
 
 <router-outlet></router-outlet>
 

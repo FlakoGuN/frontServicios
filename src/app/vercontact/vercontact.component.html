@@ -7,7 +7,6 @@
         <thead>
           <tr>
             <th scope="col">Nombre</th>
-            
             <th scope="col">Correo</th>
             <th scope="col">Telefono</th>
             <th scope="col">Empresa</th>
@@ -16,11 +15,10 @@
         <tbody>
           <tr *ngFor="let contact of contacto  ">
             <th scope="row">{{contact.nombre }} {{ contact.apellido}} </th>
-            
             <td>{{contact.correo}}</td>
             <td>{{contact.telefono}}</td>
             <td>{{contact.cliente_id.empresa}}</td>
-            <td><button (click)="crearContact(contact.cliente_id.id)"  class="btn btn-primary" > Crear Contacto</button></td>
+            
           </tr>
         </tbody>
       </table>

@@ -10,19 +10,25 @@ import { VereqpComponent } from './vereqp/vereqp.component';
 import { VerservComponent } from './verserv/verserv.component';
 import { CrearservfinalComponent } from './crearservfinal/crearservfinal.component';
 import { MostrarservComponent } from './mostrarserv/mostrarserv.component';
+import { UserComponent } from './user/user.component';
+import { AppComponent } from './app.component';
+import { canActivate, redirectUnauthorizedTo  } from '@angular/fire/auth-guard';
 
 const routes: Routes = [  
     
-  {path: 'crearcliente',  component: CrearsrvComponent},
-  {path: 'empresas', component: ServiciosComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'contacto', component: CrearcontactComponent},
-  {path: 'vercontacto', component: VercontactComponent},
-  {path: 'crearequipo', component: CreareqpComponent},
-  {path: 'verequipo', component: VereqpComponent},
-  {path: 'verservicio', component: VerservComponent},
- {path: 'crearservicio', component: CrearservfinalComponent},
- {path: 'mostrarservicio/:id', component: MostrarservComponent},
+  
+  {path: 'home',  component: AppComponent, },
+  {path: 'crearcliente',  component: CrearsrvComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
+  {path: 'empresas', component: ServiciosComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
+  {path: 'user', component: UserComponent, },
+  {path: 'login', component: LoginComponent, },
+  {path: 'contacto', component: CrearcontactComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
+  {path: 'vercontacto', component: VercontactComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
+  {path: 'crearequipo', component: CreareqpComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
+  {path: 'verequipo', component: VereqpComponent, ...canActivate(()=>redirectUnauthorizedTo(['login'])) },
+  {path: 'verservicio', component: VerservComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
+ {path: 'crearservicio', component: CrearservfinalComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
+ {path: 'mostrarservicio/:id', component: MostrarservComponent, ...canActivate(()=>redirectUnauthorizedTo(['login']))},
 ];
 
 @NgModule({

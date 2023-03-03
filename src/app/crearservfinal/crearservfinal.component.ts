@@ -4,6 +4,7 @@ import { Servicio } from 'src/modelos/Servicio';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { VercontactComponent } from '../vercontact/vercontact.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crearservfinal',
@@ -50,7 +51,11 @@ postServicioDetail(){
   this.srv.crearServicios(this.servicioModelObject).subscribe(
     data => {
       console.log(data);
-      alert("Servicio creado");
+      Swal.fire({
+        title: 'Servicio Creado',
+        text: 'Continuar',
+        icon: 'success',
+      })
       this.router.navigate(["verservicio"]);
     }
   );

@@ -4,6 +4,7 @@ import { Equipo } from 'src/modelos/Equipo';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { VercontactComponent } from '../vercontact/vercontact.component';
+import Swal from 'sweetalert2';
 
 
 
@@ -46,8 +47,13 @@ export class CreareqpComponent implements OnInit {
     this.srv.crearEquipos(this.equipoModelObject).subscribe(
       data => {
         console.log(data);
-        console.log(this.verid.id)
-        alert("Equipo creado");
+        Swal.fire({
+          title: 'Equipo Creado',
+          text: 'Continuar',
+          icon: 'success',
+        })
+        
+        
         this.router.navigate(["verequipo"]);
       }
     );

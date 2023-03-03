@@ -5,11 +5,12 @@ import { UserService } from '../user.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class LoginComponent {
+export class UserComponent {
+
   formReg: FormGroup;
   constructor(private user:UserService, private router: Router) { 
     this.formReg = new FormGroup({
@@ -19,29 +20,23 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.user.loginUser(this.formReg.value)
+    this.user.createUser(this.formReg.value)
     .then(res => {
       Swal.fire({
-        title: 'Bienvenido',
+        title: 'Usuario creado',
         text: 'Continuar',
         icon: 'success',
-        
       })
-      this.router.navigate(['/']);
+      this.router.navigate(['login']);
     })
    .catch(err => {
     Swal.fire({
-      title: 'Error',
-      text: 'Contraseña corta o correo invalido',
+      title: 'Error al crear usuario',
+      text: 'debe ser un correo valido y 6 digitos de pass',
       icon: 'error',
-      
     })
-    
     } );
     
-  }
-  loginUser(){
-    this.router.navigate(['user']);
+    
   }
 }
-
