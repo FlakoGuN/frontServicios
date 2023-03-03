@@ -32,7 +32,7 @@ export class LoginComponent {
    .catch(err => {
     Swal.fire({
       title: 'Error',
-      text: 'Contraseña corta o correo invalido',
+      text: err.message,
       icon: 'error',
       
     })

@@ -32,7 +32,7 @@ export class UserComponent {
    .catch(err => {
     Swal.fire({
       title: 'Error al crear usuario',
-      text: 'debe ser un correo valido y 6 digitos de pass',
+      text: err.message,
       icon: 'error',
     })
     } );

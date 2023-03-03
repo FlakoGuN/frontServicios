@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SrvclienteService } from '../srvcliente.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Contacto } from 'src/modelos/Contacto';
 import Swal from 'sweetalert2'
 
@@ -12,6 +12,8 @@ import Swal from 'sweetalert2'
   styleUrls: ['./crearcontact.component.css']
 })
 export class CrearcontactComponent implements OnInit {
+validPhone = "^[0-9]*$";
+mailValido = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";  
 clientes = this.srv.getClientes();
 contactos = this.srv.getContactos();
 
@@ -28,10 +30,10 @@ contactModelObject: Contacto = new Contacto();
     this.contactos = this.srv.getContactos();
     this.clientes = this.srv.getClientes(); 
     this.formValues = this.fB.group({
-      nombre: [''],
-      apellido: [''],
-      telefono: [''],
-      correo: [''],
+      nombre:  new FormControl ('',[Validators.required, Validators.minLength(3)]), 
+      apellido: new FormControl ('',[Validators.required, Validators.minLength(3)]), 
+      telefono: new FormControl ('',[Validators.required, Validators.minLength(3),  Validators.pattern(this.validPhone)]), 
+      correo:new FormControl ('',[Validators.required, Validators.minLength(3), Validators.pattern(this.mailValido)]), 
       empresas: 0
     });
     }
@@ -42,6 +44,7 @@ contactModelObject: Contacto = new Contacto();
     this.contactModelObject.telefono = this.formValues.value.telefono;
     this.contactModelObject.correo = this.formValues.value.correo;
     this.contactModelObject.cliente_id.id = this.formValues.value.empresas;
+   if(this.formValues.valid){
     this.srv.crearContactos(this.contactModelObject).subscribe(
       data => {
         
@@ -55,16 +58,21 @@ contactModelObject: Contacto = new Contacto();
         this.router.navigate(["vercontacto"]);
       }
     );
-
     }
+    else{ 
+      Swal.fire({
+        title: 'Error',
+        text: 'Campos vacios',
+        icon: 'error',
+      })
+    }
+  }
   onSelect(id:any):void{
     this.formValues.value.empresas = id;
     console.log(id); 
   }
 
-   show() {
-    this.router.navigate(["vercontacto"]);
-   }
-
- 
+  get name(){
+    return this.formValues.get('name');
+  }
 }

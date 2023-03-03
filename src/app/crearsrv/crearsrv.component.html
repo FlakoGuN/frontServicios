@@ -4,24 +4,24 @@
 
     <div class="container-sm">
       
-      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" >
+      <form [formGroup]="formValues" >
           <div class="form-group">
           <label for="exampleInputEmail1">Nombre de la Empresa</label>
-          <input type="text"   class="form-control" name="empresa" id="empresa"  placeholder="Empresa" ngModel>
+          <input type="text"  class="form-control" formControlName="empresa" name="empresa" id="empresa"  placeholder="Empresa" >
           <small id="emailHelp" class="form-text text-muted">Nombre Cliente.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Rut</label>
-            <input type="text"  class="form-control" id="rut" name="rut" aria-describedby="emailHelp" placeholder="12.345.678-9" ngModel>
-            <small id="emailHelp" class="form-text text-muted">Rut.</small>
+            <input type="text"class="form-control" class="form-control" formControlName="rut" id="rut" name="rut" aria-describedby="emailHelp" placeholder="12345678-9" >
+            <small id="emailHelp" class="form-text text-muted">Rut sin puntos con gion.</small>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Direccion</label>
-            <input type="text"  class="form-control" id="direccion" name="direccion" aria-describedby="emailHelp" placeholder="Calle Numero Comuna Ciudad" ngModel>
+            <input type="text" class="form-control" formControlName="direccion" id="direccion" name="direccion" aria-describedby="emailHelp" placeholder="Calle Numero Comuna Ciudad" >
             <small id="emailHelp" class="form-text text-muted">Av Siempre Viva 742 Sprintfield Region Metropolitana.</small>
           </div>
        
-       <button  type="submit" class="btn btn-primary">Crear</button>
+       <button  type="button"(click)="postClienteDetail()" class="btn btn-primary">Crear</button>
       </form>
      
       

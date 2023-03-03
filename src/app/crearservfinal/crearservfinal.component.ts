@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SrvclienteService } from '../srvcliente.service';
 import { Servicio } from 'src/modelos/Servicio';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { VercontactComponent } from '../vercontact/vercontact.component';
 import Swal from 'sweetalert2';
 
@@ -28,12 +28,12 @@ export class CrearservfinalComponent implements OnInit {
 
     console.log(this.equipos);
     this.formValues = this.fB.group({
-      name_serv: [''],
-      fecha: [''],
-      descripcion: [''],
-      recomendaciones: [''],
-      partes: [''],
-      horas_serv: [''],
+      name_serv: new FormControl ('',[Validators.required, Validators.minLength(5)]), 
+      fecha: new FormControl ('',[Validators.required, Validators.minLength(3)]), 
+      descripcion: new FormControl ('',[Validators.required, Validators.minLength(10)]), 
+      recomendaciones: new FormControl ('',[Validators.required, Validators.minLength(10)]), 
+      partes: new FormControl ('',[Validators.required, Validators.minLength(2)]), 
+      horas_serv: new FormControl ('',[Validators.required, Validators.minLength(1)]), 
       equipos: 0,
       contactoid: []
     });
@@ -48,6 +48,7 @@ postServicioDetail(){
   this.servicioModelObject.horas_serv = this.formValues.value.horas_serv;
   this.servicioModelObject.equipo_id.id = this.formValues.value.equipos;
   this.servicioModelObject.equipo_id.cliente_id.contacto[0] = this.formValues.value.contactoid;
+ if(this.formValues.valid){
   this.srv.crearServicios(this.servicioModelObject).subscribe(
     data => {
       console.log(data);
@@ -58,7 +59,13 @@ postServicioDetail(){
       })
       this.router.navigate(["verservicio"]);
     }
-  );
+  );}else{
+    Swal.fire({
+      title: 'Error',
+      text: 'Verifique los datos',
+      icon: 'error',
+    })
+  }
 }
 onSelect(id:any):void{
   this.formValues.value.equipos = id;

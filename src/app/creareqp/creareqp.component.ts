@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SrvclienteService } from '../srvcliente.service';
 import { Equipo } from 'src/modelos/Equipo';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { VercontactComponent } from '../vercontact/vercontact.component';
 import Swal from 'sweetalert2';
 
@@ -28,10 +28,10 @@ export class CreareqpComponent implements OnInit {
     this.equipos = this.srv.getEquipos();
     console.log(this.equipos);
     this.formValues = this.fB.group({
-      equipo: [''], 
-      modelo: [''],
-      serial: [''],
-      contador: [''],
+      equipo: new FormControl ('',[Validators.required, Validators.minLength(3)]), 
+      modelo: new FormControl ('',[Validators.required, Validators.minLength(3)]), 
+      serial: new FormControl ('',[Validators.required, Validators.minLength(5)]), 
+      contador: new FormControl ('',[Validators.required, Validators.minLength(1)]), 
       clientes: 0
      
     });
@@ -43,7 +43,7 @@ export class CreareqpComponent implements OnInit {
     this.equipoModelObject.serial = this.formValues.value.serial;
     this.equipoModelObject.contador = this.formValues.value.contador;
     this.equipoModelObject.cliente_id.id = this.formValues.value.clientes;
-  
+    if(this.formValues.valid){ 
     this.srv.crearEquipos(this.equipoModelObject).subscribe(
       data => {
         console.log(data);
@@ -56,7 +56,13 @@ export class CreareqpComponent implements OnInit {
         
         this.router.navigate(["verequipo"]);
       }
-    );
+    );}else{
+      Swal.fire({
+        title: 'Error',
+        text: 'Verifique los campos',
+        icon: 'error',
+      })
+    }
 }
 
 verEqp(){
