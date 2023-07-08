@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, shareReplay } from 'rxjs';
 import { Cliente } from 'src/modelos/Cliente';
@@ -12,49 +12,52 @@ import { Servicio } from 'src/modelos/Servicio';
 export class SrvclienteService {
 
   
+
+  
   constructor(private http:HttpClient) { }
 
-  url="http://201.188.157.152:8080/api";
+  url="http://localhost:8080/api";
  
 
   public clientes: Observable<Cliente[]> = of([]);
+  
 
   getClientes(): Observable<any> {
-    this.clientes = this.http.get<Cliente[]>(`${this.url}/cliente`).pipe(shareReplay(1));
+    this.clientes = this.http.get<Cliente[]>(`${this.url}/cliente`, );
     return this.clientes;
   }
 
   crearCliente(cliente:Cliente): Observable<any>{
-    return this.http.post<Cliente>(`${this.url}/cliente`,cliente);
+    return this.http.post<Cliente>(`${this.url}/cliente`,  cliente, );
   }
   
   getContactos() {
-    return this.http.get<Contacto[]>(`${this.url}/contacto`);
+    return this.http.get<Contacto[]>(`${this.url}/contacto`, );
   }
 
   crearContactos(contacto:Contacto): Observable<any> {
-    return this.http.post<Contacto>(`${this.url}/contacto`,contacto);
+    return this.http.post<Contacto>(`${this.url}/contacto`,contacto, );
   }
 
   getEquipos(): Observable<any> {
-    this.clientes = this.http.get<Cliente[]>(`${this.url}/equipo`);
+    this.clientes = this.http.get<Cliente[]>(`${this.url}/equipo`, );
     return this.clientes;
   }
 
   crearEquipos(equipo:Equipo): Observable<any>{
-    return this.http.post<Equipo>(`${this.url}/equipo`,equipo);
+    return this.http.post<Equipo>(`${this.url}/equipo`,equipo, );
   }
 
   getServicios(): Observable<any> {
-    this.clientes = this.http.get<Cliente[]>(`${this.url}/servicio`);
+    this.clientes = this.http.get<Cliente[]>(`${this.url}/servicio`, );
     return this.clientes;
   }
 
   crearServicios(servicio:Servicio): Observable<any>{
-    return this.http.post<Servicio>(`${this.url}/servicio`,servicio);
+    return this.http.post<Servicio>(`${this.url}/servicio`,servicio, );
   }
 
   verServicio(id:number): Observable<any>{
-    return this.http.get<Servicio>(`${this.url}/servicio/${id}`);
+    return this.http.get<Servicio>(`${this.url}/servicio/${id}`, );
   }
 }

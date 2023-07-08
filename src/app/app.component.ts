@@ -46,6 +46,6 @@ export class AppComponent {
 
   logout(){
     this.usrsvc.logoutUser();
-   
+    this.router.navigate(['']);
   }
 }

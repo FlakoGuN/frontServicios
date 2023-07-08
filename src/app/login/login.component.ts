@@ -9,7 +9,8 @@ import Swal from 'sweetalert2';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent  {
+  token = localStorage.getItem('idToken');
   formReg: FormGroup;
   constructor(private user:UserService, private router: Router) { 
     this.formReg = new FormGroup({
@@ -20,6 +21,7 @@ export class LoginComponent {
 
   onSubmit() {
     this.user.loginUser(this.formReg.value)
+    
     .then(res => {
       Swal.fire({
         title: 'Bienvenido',
@@ -27,6 +29,7 @@ export class LoginComponent {
         icon: 'success',
         
       })
+      console.log(this.token);
       this.router.navigate(['/']);
     })
    .catch(err => {
